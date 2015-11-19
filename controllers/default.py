@@ -8,6 +8,9 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
+
+
+@banana()
 def index():
     """
     example action using the internationalization operator T and flash
