@@ -10,7 +10,7 @@
 
 
 
-@banana()
+# @banana
 def index():
     """
     example action using the internationalization operator T and flash

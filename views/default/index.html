@@ -5,7 +5,7 @@
 
 <script id="template" type="text/ractive">
   {% #if editing %}
-  <textarea id="editarea" on-blur="editdone" value="{% mytext %}">
+  <textarea id="editarea" on-blur="editdone" data-areaid="3" value="{% mytext %}">
   </textarea>
   {% else %}
   <div on-click="startedit"><p>{% mytext %}</p></div>
@@ -31,10 +31,11 @@ $(function() {
     $("#editarea").focus();
   });
 
-  MAIN.on("editdone", function() {
+  MAIN.on("editdone", function(e) {
     MAIN.set("editing", false);
     var myval = MAIN.get("mytext");
-    alert(myval);
+    var areaid = $(e.node).data("areaid");
+    alert(myval + " " + areaid);
   })
 
 });
