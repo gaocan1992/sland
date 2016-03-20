@@ -45,35 +45,10 @@
    <script src="{{=URL('static', 'js/ractive.min.js')}}"></script>
     <script src="{{=URL('static', 'js/materialize.min.js')}}"></script>
 
-    <!-- Dropdown Structure -->
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="{{=URL('default', 'profile')}}">Profile</a></li>
-      <li><a href="#!">Setting</a></li>
-      <li class="divider"></li>
-      <li><a href="{{=URL('default', 'user', args=['logout'])}}">Log out</a></li>
-    </ul>
     <div class="navbar-fixed">
         <nav class="teal accent-4">
           <div class="nav-wrapper">
             <a href="#!" class="brand-logo">Sland</a>
-              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li id="shares_nav"><a href="{{=URL('default', 'shares')}}">Shares</a></li>
-              <li id="people_nav"><a href="{{=URL('default', 'people')}}">People</a></li>
-              <!-- Dropdown Trigger -->
-                {{if auth.user_id is not None:}}
-              <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{=auth.user.first_name}} {{=auth.user.last_name}}<i class="material-icons right">arrow_drop_down</i></a></li>
-                {{pass}}
-            </ul>
-
-              <ul class="side-nav" id="mobile-demo">
-              <li><a href="{{=URL('default', 'shares')}}">Shares</a></li>
-              <li><a href="{{=URL('default', 'people')}}">People</a></li>
-              <li><a href="{{=URL('default', 'profile')}}">Profile</a></li>
-                  <li><a href="#!">Setting</a></li>
-                  <li class="divider"></li>
-                  <li><a href="{{=URL('default', 'user', args=['logout'])}}">Log out</a></li>
-            </ul>
           </div>
         </nav>
     </div>
@@ -107,7 +82,7 @@
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
+            © {{=request.now.year}} Copyright
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
           </div>

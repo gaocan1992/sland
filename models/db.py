@@ -52,13 +52,33 @@ response.form_label_separator = myconf.take('forms.separator')
 #########################################################################
 
 from gluon.tools import Auth, Service, PluginManager
+from datetime import datetime
 
 auth = Auth(db)
 service = Service()
 plugins = PluginManager()
 
+## after auth = Auth(db)
+auth.settings.extra_fields['auth_user']= [
+  Field('introduction', default=''),
+  Field('address', default=''),
+  Field('contact_email', default=''),
+  Field('telephone', default=''),
+  Field('avatar', 'upload'),
+  Field('create_time', default=datetime.utcnow()),
+]
+## before auth.define_tables(username=True)
+
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
+db.auth_user.create_time.writable=db.auth_user.create_time.readable=False
+db.auth_user.introduction.requires=IS_EMPTY_OR(IS_LENGTH(200, error_message='The number of characters should be less than 200.'))
+db.auth_user.address.requires=IS_EMPTY_OR(IS_LENGTH(50, error_message='The number of characters should be less than 50.'))
+db.auth_user.contact_email.requires=IS_EMPTY_OR(IS_EMAIL(error_message='This is not a valid email.'))
+db.auth_user.telephone.requires=IS_EMPTY_OR(IS_MATCH('^\d*$', error_message='This is not a valid phone number.'))
+db.auth_user.avatar.requires=IS_EMPTY_OR([IS_IMAGE(extensions=('png', 'jpg', 'jpeg'),
+                                                  error_message='must be png, jpg and jpeg file.'),
+                                          IS_LENGTH(1048576, error_message='must less than 1MB.')])
 
 ## configure email
 mail = auth.settings.mailer
