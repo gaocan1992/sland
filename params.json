@@ -1,0 +1,6 @@
+{
+  "name": "Sland",
+  "tagline": "Social Media Website",
+  "body": "# Sland \r\n<b>-- a place for creativity and imagination.</b>\r\n## Introduction\r\n\r\nSland (http://www.slandweb.com) is a social media website that allows people to post their own shares with pictures and users messaging system.\r\n## Use Guide\r\n\r\nYou can visit its website directly or clone it to your computer and run.\r\n\r\nFirst you need to install git using this command line.\r\n```\r\nsudo apt-get install git-all\r\n```\r\nThen, you need to install web2py from github.\r\n\r\n```\r\ngit clone https://github.com/web2py/web2py\r\n```\r\nYou can clone my website using:\r\n\r\n```\r\ngit clone https://github.com/gaocan1992/sland\r\n```\r\nAnd put it in web2py's applications folder.\r\n\r\nRun web2py in command line (int the same folder containing web2py.py):\r\n\r\n```\r\npython web2py.py\r\n```\r\nUseful website:\r\n\r\nInstall git:\r\n\r\nhttps://git-scm.com/book/en/v2/Getting-Started-Installing-Git\r\n\r\nWeb2py: \r\n\r\nhttp://www.web2py.com\r\n## Feedback\r\n\r\nIf you have any question, you can send a email to [gaocan1992gc@gmail.com](mailto:gaocan1992gc@gmail.com)",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
